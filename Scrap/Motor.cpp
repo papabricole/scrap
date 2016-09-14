@@ -3,9 +3,9 @@
 
 using namespace scrap;
 
-#define MOTOR_TRIM 10
-#define PWM_A_SLOW  200  // arbitrary slow speed PWM duty cycle
-#define PWM_A_FAST  250 // arbitrary fast speed PWM duty cycle
+#define MOTOR_TRIM 0
+#define PWM_A_SLOW  100  // arbitrary slow speed PWM duty cycle
+#define PWM_A_FAST  (PWM_A_SLOW + 50) // arbitrary fast speed PWM duty cycle
 #define PWM_B_SLOW  (PWM_A_SLOW + MOTOR_TRIM)
 #define PWM_B_FAST  (PWM_A_FAST + MOTOR_TRIM)
 #define DIR_DELAY 1000 // brief delay for abrupt motor changes
