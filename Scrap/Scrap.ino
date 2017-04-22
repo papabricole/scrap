@@ -4,13 +4,13 @@
 
 using namespace scrap;
 
-#define PING_PIN  7  // pin tied to both trigger and echo pins on the ultrasonic sensor.
-#define SERVO_PIN 8
+#define PING_PIN  11  // pin tied to both trigger and echo pins on the ultrasonic sensor.
+#define SERVO_PIN 12
 
-#define HG7881_A_IA 5 // PWM
-#define HG7881_A_IB 4
-#define HG7881_B_IA 3 // PWM
-#define HG7881_B_IB 2
+#define HG7881_A_IA 3 // !!! PWM PIN !!!
+#define HG7881_A_IB 2
+#define HG7881_B_IA 6 // !!! PWM PIN !!!
+#define HG7881_B_IB 7
 
 #define MAX_DISTANCE 50 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
 
