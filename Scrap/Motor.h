@@ -2,12 +2,10 @@
 
 #include <inttypes.h>
 
-namespace scrap
-{
+namespace scrap {
 
-class Motor
-{
-  public:
+class Motor {
+public:
     Motor(uint8_t A_IA, uint8_t A_IB, uint8_t B_IA, uint8_t B_IB);
 
     void forward();
@@ -16,7 +14,7 @@ class Motor
     void turnLeft(int ms = 400);
     void turnRight(int ms = 400);
 
-  private:
+private:
     uint8_t MOTOR_A_PWM; // Motor B PWM Speed
     uint8_t MOTOR_A_DIR; // Motor B Direction
     uint8_t MOTOR_B_PWM; // Motor B PWM Speed
