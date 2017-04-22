@@ -28,10 +28,15 @@ Servo servo;
 Ping ping(PING_PIN);
 Motor motor(HG7881_A_IA, HG7881_A_IB, HG7881_B_IA, HG7881_B_IB);
 
-char scan()
+enum Direction
 {
-  char choice;
-  
+  LEFT,
+  RIGHT,
+  STRAIGHT
+};
+
+Direction scan()
+{
   // Ping center
   servo.write(servoCenter);
   delay(300);
@@ -51,17 +56,15 @@ char scan()
   servo.write(servoCenter);
   
   if (leftscanval > rightscanval && leftscanval > centerscanval) {
-    choice = 'l';
+    Serial.print("Choice:  LEFT");
+    return LEFT;
   }
   else if (rightscanval > leftscanval && rightscanval > centerscanval) {
-    choice = 'r';
+    Serial.print("Choice:  RIGHT");
+    return RIGHT;
   }
-  else {
-    choice = 's';
-  }
-  Serial.print("Choice:  ");
-  Serial.println(choice);
-  return choice;
+  Serial.print("Choice:  STRAIGHT");
+  return STRAIGHT;
 }
 
 void setup()
@@ -79,15 +82,15 @@ void loop()
   
   if (distance < distancelimit) {
     motor.stop(); // If something is ahead, stop the motors.
-    char turndirection = scan(); //Decide which direction to turn.
+    Direction turndirection = scan(); //Decide which direction to turn.
     switch (turndirection) {
-      case 'r':
+      case RIGHT:
         motor.turnLeft(turntime);
         break;
-      case 'l':
+      case LEFT:
         motor.turnRight(turntime);
         break;
-      case 's':
+      case STRAIGHT:
         motor.turnRight(turnaroundtime);
         break;
     }
