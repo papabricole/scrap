@@ -1,7 +1,7 @@
 #include "Ping.h"
 #include "Arduino.h"
 
-using namespace scrap;
+namespace scrap {
 
 Ping::Ping(uint8_t pin)
     : ping_pin(pin)
@@ -33,3 +33,4 @@ unsigned int Ping::distance(int minDistance, int maxDistance)
     // convert the time into a distance
     return duration / 29 / 2;
 }
+} // namespace scrap

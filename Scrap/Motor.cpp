@@ -1,7 +1,7 @@
 #include "Motor.h"
 #include "Arduino.h"
 
-using namespace scrap;
+namespace scrap {
 
 #define MOTOR_TRIM -5
 #define PWM_A_SLOW 100 // arbitrary slow speed PWM duty cycle
@@ -71,3 +71,5 @@ void Motor::turnRight(int ms)
     digitalWrite(MOTOR_A_DIR, HIGH); // direction = forward
     analogWrite(MOTOR_A_PWM, 255 - PWM_A_SLOW); // PWM speed = slow
 }
+
+} // namespace scrap
